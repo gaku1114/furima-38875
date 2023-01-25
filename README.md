@@ -1,7 +1,7 @@
 ## usersテーブル
 
 | Column             | Type    | Options                   |
-|------------------- | ------- | ------------------------- |
+| ------------------ | ------- | ------------------------- |
 | nickname           | string  | null: false               |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
@@ -19,15 +19,15 @@
 ## itemsテーブル
 
 | Column          | Type       | Options                        |
-|---------------- | ---------- | ------------------------------ |
+| --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
+| category_id     | integer    | null: false                    |
+| condition_id    | integer    | null: false                    |
 | price           | integer    | null: false                    |
-| delivery_charge | string     | null: false                    |
-| deadline        | integer    | null: false                    |
-| prefecture      | string     | null: false                    |
+| postage_id      | integer    | null: false                    |
+| deadline_id     | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 - belogngs_to :user
@@ -36,24 +36,26 @@
 
 ## ordersテーブル
 
-| Column       | Type       | Options                        |
-|------------- | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| item         | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 - belogs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :destination
 
 
-## destinationテーブル
+## destinationsテーブル
 
-| postal_code  | string     | null: false                    |
-| prefecture   | string     | null: false                    |
-| municipality | string     | null: false                    |
-| address      | string     | null: false                    |
-| building     | string     |                                |
-| phone_number | integer    | null: false                    |
-| orders       | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| municipality  | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 - belongs_to :order
