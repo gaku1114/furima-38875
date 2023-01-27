@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :render_root, only: :new, unless: :user_signed_in? 
+  before_action :authenticate_user!, except: [:index]
  
   def index
   end
@@ -22,7 +22,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :description, :category_id, :condition_id, :price, :postage_id, :deadline_id, :prefecture_id).merge(user_id: current_user.id)
   end
 
-  def render_root
-    render :index
-  end
 end

@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :postage_id,    numericality: { other_than: 1, message: 'を選択してください' } 
   validates :deadline_id,   numericality: { other_than: 1, message: 'を選択してください' } 
   validates :prefecture_id, numericality: { other_than: 1, message: 'を選択してください' } 
-  validates :price,         presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}, format: { with:  /\A[0-9]+\z/ }
+  validates :price,         presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :image,         presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions

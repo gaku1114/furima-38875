@@ -24,7 +24,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
-      it 'descriptionが1以外でないと出品できない' do
+      it 'descriptionが空だと出品できない' do
         @item.description = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
