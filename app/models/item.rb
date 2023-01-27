@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :deadline_id,   numericality: { other_than: 1 } 
   validates :prefecture_id, numericality: { other_than: 1 } 
   validates :price,         presence: true, numericality: { in: 300..9999999 }, format: { with:  /\A[0-9]+\z/ }
+  validates :image,         presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -16,4 +17,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture 
 
   belongs_to :user
+
+  has_one_attached :image
 end
