@@ -24,11 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if user_judge
-      render :edit
-    else
-      redirect_to root_path
-    end
   end
 
   def update
@@ -40,12 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if user_judge
-      @item.destroy
-      redirect_to root_path
-    else
-      render :index
-    end
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -60,6 +51,8 @@ class ItemsController < ApplicationController
   end
   
   def user_judge
-    current_user == @item.user
+    if current_user != @item.user
+      redirect_to root_path
+    end
   end
 end
