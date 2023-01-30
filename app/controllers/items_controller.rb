@@ -22,10 +22,29 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    if current_user == @item.user
+      render :edit
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :category_id, :condition_id, :price, :postage_id, :deadline_id,
                                  :prefecture_id).merge(user_id: current_user.id)
   end
+
 end
