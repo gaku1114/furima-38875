@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @item = Item.find(params[:item_id])
     @order_destination = OrderDestination.new
@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
       @order_destination.save
       redirect_to root_path
     else
-      redirect_to action: :new
+      @item = Item.find(params[:item_id])
+      render :new
     end
   end
     
