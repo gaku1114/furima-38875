@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    return unless Order.exists?(item_id: @item.id)
+
+    redirect_to root_path
   end
 
   def update
@@ -49,10 +52,10 @@ class ItemsController < ApplicationController
   def item_find
     @item = Item.find(params[:id])
   end
-  
+
   def user_judge
-    if current_user != @item.user
-      redirect_to root_path
-    end
+    return unless current_user != @item.user
+
+    redirect_to root_path
   end
 end

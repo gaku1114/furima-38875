@@ -33,31 +33,31 @@ RSpec.describe Item, type: :model do
       it 'category_idが1以外でないと出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category を選択してください')
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it 'condition_idが1以外でないと出品できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Condition を選択してください')
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it 'postage_idが1以外でないと出品できない' do
         @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Postage を選択してください')
+        expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
       it 'deadline_idが1以外でないと出品できない' do
         @item.deadline_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Deadline を選択してください')
+        expect(@item.errors.full_messages).to include("Deadline can't be blank")
       end
 
       it 'prefecture_idが1以外でないと出品できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Prefecture を選択してください')
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it 'priceが空では出品できない' do
