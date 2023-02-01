@@ -27,57 +27,57 @@ RSpec.describe OrderDestination, type: :model do
       end
 
       it 'postal_codeが空だと購入できない' do
-        @order_destination.postal_code = ""
+        @order_destination.postal_code = ''
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Postal code can't be blank")
       end
 
       it 'postal_codeは「3桁ハイフン4桁」の形のみ保存可能' do
-        @order_destination.postal_code = 1234567
+        @order_destination.postal_code = 1_234_567
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Postal code is invalid. Include hyphen(-)")
+        expect(@order_destination.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefecture_idが1以上でないと購入できない' do
         @order_destination.prefecture_id = 1
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Prefecture can't be blank")
+        expect(@order_destination.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it 'cityが空だと購入できない' do
-        @order_destination.city = ""
+        @order_destination.city = ''
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "City can't be blank")
+        expect(@order_destination.errors.full_messages).to include("City can't be blank")
       end
 
       it 'addressが空だと購入できない' do
-        @order_destination.address = ""
+        @order_destination.address = ''
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Address can't be blank")
+        expect(@order_destination.errors.full_messages).to include("Address can't be blank")
       end
 
       it 'phone_numberが空だと購入できない' do
-        @order_destination.phone_number = ""
+        @order_destination.phone_number = ''
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Phone number can't be blank")
+        expect(@order_destination.errors.full_messages).to include("Phone number can't be blank")
       end
 
       it 'phone_numberが9桁以下では購入できない' do
-        @order_destination.phone_number = 123456789
+        @order_destination.phone_number = 123_456_789
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Phone number is invalid." )
+        expect(@order_destination.errors.full_messages).to include('Phone number is invalid.')
       end
 
       it 'phone_numberが12桁以上では購入できない' do
-        @order_destination.phone_number = 123456789123
+        @order_destination.phone_number = 123_456_789_123
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Phone number is invalid." )
+        expect(@order_destination.errors.full_messages).to include('Phone number is invalid.')
       end
 
       it 'tokenが空だと購入できない' do
-        @order_destination.token = ""
+        @order_destination.token = ''
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include( "Token can't be blank")
+        expect(@order_destination.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
