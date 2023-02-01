@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :item_set_judge
 
-  def new
+  def index
     @order_destination = OrderDestination.new
   end
 
@@ -13,8 +13,7 @@ class OrdersController < ApplicationController
       @order_destination.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
-      render :new
+      render :index
     end
   end
 

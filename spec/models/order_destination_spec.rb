@@ -11,6 +11,11 @@ RSpec.describe OrderDestination, type: :model do
       it 'すべての項目が存在すれば商品を購入できる' do
         expect(@order_destination).to be_valid
       end
+
+      it 'buildingが空でも購入できる' do
+        @order_destination.building = ''
+        expect(@order_destination).to be_valid
+      end
     end
 
     context '商品を購入できない' do
@@ -73,6 +78,13 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include('Phone number is invalid.')
       end
+
+      it 'phone_numberに半角数字以外が含まれている場合は購入できない' do
+        @order_destination.phone_number = "090-1234-5678"
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include('Phone number is invalid.')
+      end
+
 
       it 'tokenが空だと購入できない' do
         @order_destination.token = ''
