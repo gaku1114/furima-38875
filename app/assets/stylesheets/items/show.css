@@ -92,6 +92,10 @@
   text-align: center;
 }
 
+.user-show-link {
+  color: black;
+}
+
 .detail-value {
   width: 80%;
   padding: 20px;

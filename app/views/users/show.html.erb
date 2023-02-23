@@ -1,0 +1,55 @@
+<%= render "shared/header" %>
+
+<div class="user-show-main">
+  <div class="user-show-top">
+    <div class="show-top-left">
+      <div class="user-show-name"><%= @user.nickname %></div>
+      <div class="show-count">
+        <div class="items-count">
+          <%= @items.count %><p>出品数</p>
+        </div>
+        <div class="follower-count">
+          <p>フォロワー</p>
+        </div>
+        <div class="follow-count">
+          <p>フォロー中</p>
+        </div>
+      </div>
+    </div>
+    <div class="user-followーbtn">
+      フォローする
+    </div>
+  </div>
+  <div class="user-show-items">
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
+
+              <% if Order.exists?(item_id: item.id) %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span> 
+                </div>
+              <% end %>
+
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price.to_s(:delimited) %>円<br><%= item.postage.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
