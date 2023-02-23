@@ -14,6 +14,7 @@
 
 - has_many :items
 - has_many :orders
+- has_many :comments
 
 
 ## itemsテーブル
@@ -30,8 +31,9 @@
 | prefecture_id   | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
-- belogs_to :user
+- belongs_to :user
 - has_one :order
+- has_many :comments
 
 
 ## ordersテーブル
@@ -41,7 +43,7 @@
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
 
-- belogs_to :user
+- belongs_to :user
 - belongs_to :item
 - has_one :destination
 
@@ -59,3 +61,15 @@
 | order         | references | null: false, foreign_key: true |
 
 - belongs_to :order
+
+
+## commentsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| text    | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+
+- belongs_to :user
+- belongs_to :item
