@@ -9,6 +9,7 @@
 .user-show-top {
   height: 200px;
   width: 50vw;
+  min-width: 600px;
   display: flex;
   justify-content: space-between;
 }
@@ -41,4 +42,15 @@
   padding-right: 8px;
   margin-right: 8px;
   border-right: 1px solid gray;
+}
+
+.user-follow {
+  margin-top: 30px;
+}
+
+.follow-btn {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 10px 20px;
 }

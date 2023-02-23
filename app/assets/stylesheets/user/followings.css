@@ -1,0 +1,22 @@
+.followings-main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.followings-top {
+  width: 700px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.following-list {
+  width: 700px;
+  font-size: 20px;
+  border-bottom: 1px solid gray;
+  padding: 20px 30px;
+}
