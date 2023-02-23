@@ -214,6 +214,7 @@
   border: 1px solid white;
   background-color: white;
   padding: 30px 50px;
+  width: 600px;
 }
 
 .comments-top {
@@ -224,7 +225,6 @@
 
 .comment {
   display: flex;
-  width: 500px;
 }
 
 .user-info {
