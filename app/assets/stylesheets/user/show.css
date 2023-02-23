@@ -34,6 +34,11 @@
   margin-right: 8px;
 }
 
+.count-link {
+  color: black;
+  display: block;
+}
+
 .aa {
   color: gray;
   margin-top: 3px;
