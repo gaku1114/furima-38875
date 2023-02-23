@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+
+<div class="followings-main">
+  <div class="followings-top">フォロー中</div>
+  <ul>
+    <% @users.each do |user| %>
+      <li class="following-list"><%= link_to user.nickname, user_path(user), class:'user-show-link' %></li>
+    <% end %>
+  </ul>
+</div>
