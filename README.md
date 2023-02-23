@@ -9,7 +9,7 @@
 | last_name          | string  | null: false               |
 | first_name_kana    | string  | null: false               |
 | last_name_kana     | string  | null: false               |
-| birtday            | date    | null: false               |
+| birthday            | date    | null: false               |
 
 
 - has_many :items
@@ -30,7 +30,7 @@
 | prefecture_id   | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
-- belogngs_to :user
+- belogs_to :user
 - has_one :order
 
 
