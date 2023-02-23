@@ -6,7 +6,7 @@
       <div class="user-show-name"><%= @user.nickname %></div>
       <div class="show-count">
         <div class="counts">
-          <div class="count"><%= @items.count %></div><p class="aa">出品数</p>
+          <div class="item-count"><%= @items.count %></div><p class="aa">出品数</p>
         </div>
         <div class="counts">
           <div class="count"><%= link_to @user.followers.count, user_followers_path(@user), class:'count-link', method: :get  %></div><p class="aa">フォロワー</p>
